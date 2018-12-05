@@ -12,7 +12,7 @@
 - Heroku
 - PostgreSQL
 
-![](http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi_poster.png)
+![](http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi_poster.png =400x711)
 
 # デモ動画
-[http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov(http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov)
+[http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov](http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov)
