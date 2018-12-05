@@ -6,8 +6,13 @@
 音声や動画のなかには、そのスポットが設置された場所にちなんだ内容のものもあり、あたかもアイドルがそこに棲んでいるような錯覚を生みだします。  
 
 - Django2.1.1  
-- Python3.6.1  
-- HTML5 Geolocation API  
-- jQuery3.3.1  
-- Heroku  
-- PostgreSQL  
+- Python3.6.1
+- HTML5 Geolocation API
+- jQuery3.3.1
+- Heroku
+- PostgreSQL
+
+![](http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi_poster.png)
+
+# デモ動画
+[http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov(http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov)
