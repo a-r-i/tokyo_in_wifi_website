@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tokyo in WiFi</title>
+        <meta name="description" content="・・・・・・・・・第15回定期公演 Tokyo in WiFi 都市が「・ちゃんがWiFiのように飛んでいる空間」になる定期公演">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@dotstokyo">
+        <meta name="twitter:title" content="・・・・・・・・・第15回定期公演 Tokyo in WiFi">
+        <meta name="twitter:description" content="都市が「・ちゃんがWiFiのように飛んでいる空間」になる定期公演">
+        <meta name="twitter:image" content="http://dots.tokyo/images/dots.png">
+        <link rel="stylesheet" type="text/css" href="{% static 'tokyo_in_map/css/main.css' %}">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+        <script type="text/javascript" src="{% static 'tokyo_in_map/js/app.js' %}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '');
+        </script>
+    </head>
+    <body>
+        <p><a href="./">Tokyo in WiFiとは？</a></p>
+        <p id="status"></p>
+        <ol id="spots" class="slippylist">
+        </ol>
+    </body>
+</html>

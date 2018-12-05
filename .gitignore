@@ -1,0 +1,6 @@
+settings_local.py
+*.pyc
+venv
+staticfiles
+db.sqlite3
+.idea
