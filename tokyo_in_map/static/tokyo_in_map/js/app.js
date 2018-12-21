@@ -45,7 +45,7 @@ function addSpot(data) {
             var elemPSpotAddress = document.createElement("p");
             elemPSpotAddress.textContent = '📍' + spot['address'];
             var elemPDistance = document.createElement("p");
-            elemPDistance.textContent = '👣' + Math.round(spot['distance']) + 'm';
+            elemPDistance.textContent = '👣' + Math.round(spot['distance_meter']) + 'm';
 
             if (spot['content_url']) {
                 elemA = document.createElement('a');

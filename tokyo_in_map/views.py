@@ -1,63 +1,63 @@
-from django.shortcuts import render
 from django.http import JsonResponse
+from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.generic import TemplateView
+from django.views import View
 
 from .models import Spot
 
 import pyproj
 
 
-def index(request):
-    return render(request, 'tokyo_in_map/index.html')
+class IndexView(TemplateView):
+    template_name = 'tokyo_in_map/index.html'
 
 
-@ensure_csrf_cookie
-def spots(request):
-    if request.method == 'POST':
+class SpotsView(View):
+    method_decorator(ensure_csrf_cookie)
+    def get(self, request):
+        return render(request, 'tokyo_in_map/spots.html')
+
+    def post(self, request):
         request_latitude = request.POST['latitude']
         request_longitude = request.POST['longitude']
 
-        spots = search_spots(request_latitude, request_longitude)
+        spots = self.search_spots(request_latitude, request_longitude)
 
         data = {
-            'spots':spots
+            'spots': spots
         }
 
         return JsonResponse(data, safe=False)
-    else:
-        return render(request, 'tokyo_in_map/spots.html')
 
+    def search_spots(self, request_latitude, request_longitude):
+        spot_obj_list = Spot.objects.all()
 
-# model.pyに書くべき処理？
-def search_spots(request_latitude, request_longitude):
-    spot_obj_list = Spot.objects.all()
+        spots = []
 
-    spots = []
+        for spots_obj in spot_obj_list:
+            distance_meter = self.culc_distance(request_latitude, request_longitude, spots_obj.latitude,
+                                           spots_obj.longitude)
 
-    for spots_obj in spot_obj_list:
-        distance = culc_distance(request_latitude, request_longitude, spots_obj.latitude, spots_obj.longitude)
+            spot = {
+                'address': spots_obj.address,
+                'distance_meter': distance_meter,
+            }
 
-        spot = {
-            'address': spots_obj.address,
-            'distance': distance,
-        }
+            if spots_obj.intensity_meter > distance_meter:
+                spot['content_url'] = spots_obj.content_url
+            else:
+                spot['content_url'] = None
 
-        INTENSITY_METER = 50 # WiFiスポットの何メートル以内なら、WiFiに接続できるか
+            spots.append(spot)
 
-        if INTENSITY_METER > distance:
-            spot['content_url'] = spots_obj.content_url
-        else:
-            spot['content_url'] = None
+        spots.sort(key=lambda x: x['distance_meter'])
 
-        spots.append(spot)
+        return spots
 
-    spots.sort(key=lambda x: x['distance'])
+    def culc_distance(self, lat1, lng1, lat2, lng2):
+        grs80 = pyproj.Geod(ellps='GRS80')  # GRS80楕円体
+        azimuth, bkw_azimuth, distance_meter = grs80.inv(lng1, lat1, lng2, lat2)
 
-    return spots
-
-
-def culc_distance(lat1, lng1, lat2, lng2):
-    grs80 = pyproj.Geod(ellps='GRS80')  # GRS80楕円体
-    azimuth, bkw_azimuth, distance_meter = grs80.inv(lng1, lat1, lng2, lat2)
-
-    return distance_meter
+        return distance_meter

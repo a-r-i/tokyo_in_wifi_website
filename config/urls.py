@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
+from tokyo_in_map import views
 from django.urls import include, path
 
 urlpatterns = [
