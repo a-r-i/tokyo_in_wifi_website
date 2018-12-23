@@ -13,12 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.conf.urls import url
-from tokyo_in_map import views
+# from django.contrib import admin
+from tokyo_in_map import views as tokyo_in_map_views
 from django.urls import include, path
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path('', include('tokyo_in_map.urls')),
+    # path('admin/', admin.site.urls),
+    path('', tokyo_in_map_views.IndexView.as_view()),
+    path('spots', include('tokyo_in_map.urls')),
 ]
