@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-# from settings_local import SECRET_KEY, DEBUG, ALLOWED_HOSTS
-from settings_production import SECRET_KEY, DEBUG, ALLOWED_HOSTS
+# from settings_local import SECRET_KEY, DEBUG, ALLOWED_HOSTS, SECURE_SSL_REDIRECT
+from settings_production import SECRET_KEY, DEBUG, ALLOWED_HOSTS, SECURE_SSL_REDIRECT
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -136,5 +136,3 @@ STATICFILES_DIRS = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CSRF_COOKIE_SECURE = True
-
-SECURE_SSL_REDIRECT = True

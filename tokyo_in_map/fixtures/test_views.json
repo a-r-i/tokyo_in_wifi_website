@@ -1,0 +1,15 @@
+[
+  {
+    "model": "tokyo_in_map.spot",
+    "pk": 1,
+    "fields": {
+      "latitude": ,
+      "longitude": ,
+      "address": "",
+      "content_url": "",
+      "intensity_meter": ,
+      "created_at": "",
+      "updated_at": ""
+    }
+  }
+]
