@@ -6,7 +6,7 @@
 音声や動画のなかには、そのスポットが設置された場所にちなんだ内容のものもあり、あたかもアイドルがそこに棲んでいるような錯覚を生みだします。  
 
 # Requirement
-- Django 2.1.1  
+- Django 2.1.5  
 - Python 3.6.1
 - HTML5 Geolocation API
 - jQuery 3.3.1
