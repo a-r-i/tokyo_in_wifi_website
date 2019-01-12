@@ -1,6 +1,5 @@
 from django.test import TestCase
 
-
 class TestIndexView(TestCase):
     def test_get(self):
         response = self.client.get('/')
@@ -23,6 +22,13 @@ class TestSpotsView(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'tokyo_in_map/spots.html')
 
-    def test_post(self):
+    def test_post_response_status_code_200(self):
         response = self.client.post('/spots', self.data)
         self.assertEquals(response.status_code, 200)
+
+    # spotsリストは要素を持っているか
+    def test_spots_has_element(self):
+        response = self.client.post('/spots', self.data)
+        response_json = response.json()
+        spots = response_json['spots']
+        self.assertTrue(spots != [])
