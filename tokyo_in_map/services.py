@@ -1,4 +1,4 @@
-from .models import Spot
+from .models import Spot, Content
 
 import pyproj
 
@@ -14,12 +14,16 @@ def search_spots(request_latitude, request_longitude):
         spot = {
             'address': spots_obj.address,
             'distance_meter': distance_meter,
+            'content_url': None
         }
 
         if spots_obj.intensity_meter > distance_meter:
-            spot['content_url'] = spots_obj.content_url
-        else:
-            spot['content_url'] = None
+            try:
+                content_obj = Content.objects.get(spot=spots_obj.id)
+            except Content.DoesNotExist:
+                print('Content.DoesNotExist')
+            else:
+                spot['content_url'] = content_obj.content_url
 
         spots.append(spot)
 
