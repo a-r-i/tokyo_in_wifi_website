@@ -3,13 +3,12 @@
     "model": "tokyo_in_map.spot",
     "pk": 1,
     "fields": {
-      "latitude": ,
-      "longitude": ,
-      "address": "",
-      "content_url": "",
-      "intensity_meter": ,
-      "created_at": "",
-      "updated_at": ""
+      "latitude": 35.6895924,
+      "longitude": 139.7004131,
+      "address": "新宿駅",
+      "intensity_meter": 200,
+      "created_at": "2018-12-10 09:18:30.845202",
+      "updated_at": "2018-12-10 09:18:30.845202"
     }
   }
 ]
