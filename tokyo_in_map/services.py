@@ -3,9 +3,9 @@ from .models import Spot, Content
 import pyproj
 
 def search_spots(request_latitude, request_longitude):
-    spot_obj_list = Spot.objects.all()
-
     spots = []
+
+    spot_obj_list = Spot.objects.all()
 
     for spots_obj in spot_obj_list:
         distance_meter = culc_distance(request_latitude, request_longitude, spots_obj.latitude,
