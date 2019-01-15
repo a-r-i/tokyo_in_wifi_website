@@ -7,19 +7,19 @@ def search_spots(request_latitude, request_longitude):
 
     spot_obj_list = Spot.objects.all()
 
-    for spots_obj in spot_obj_list:
-        distance_meter = culc_distance(request_latitude, request_longitude, spots_obj.latitude,
-                                            spots_obj.longitude)
+    for spot_obj in spot_obj_list:
+        distance_meter = culc_distance(request_latitude, request_longitude, spot_obj.latitude,
+                                            spot_obj.longitude)
 
         spot = {
-            'address': spots_obj.address,
+            'address': spot_obj.address,
             'distance_meter': distance_meter,
             'content_url': None
         }
 
-        if spots_obj.intensity_meter > distance_meter:
+        if spot_obj.intensity_meter > distance_meter:
             try:
-                content_obj = Content.objects.get(spot=spots_obj.id)
+                content_obj = Content.objects.get(spot=spot_obj.id)
             except Content.DoesNotExist:
                 print('Content.DoesNotExist')
             else:
