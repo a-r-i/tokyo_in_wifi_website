@@ -15,14 +15,19 @@ class IndexView(TemplateView):
 class SpotsView(View):
     method_decorator(ensure_csrf_cookie)
     def get(self, request):
-        print(request.method)
         return render(request, 'tokyo_in_map/spots.html')
 
     def post(self, request):
+        print(request.POST)
+
         request_latitude = request.POST['latitude']
         request_longitude = request.POST['longitude']
+        try:
+            request_count = int(request.POST['count'])
+        except KeyError:
+            request_count = 100
 
-        spots = search_spots(request_latitude, request_longitude)
+        spots = search_spots(request_latitude, request_longitude, request_count)
 
         data = {
             'spots': spots

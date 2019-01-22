@@ -8,9 +8,10 @@ class TestSearchSpots(TestCase):
         # 新宿駅の緯度と経度
         self.latitude = 35.6895924
         self.longitude = 139.7004131
+        self.count = 100
 
     def test_spots_is_instance_list(self):
-        spots = search_spots(self.latitude, self.longitude)
+        spots = search_spots(self.latitude, self.longitude, self.count)
         self.assertIsInstance(spots, list)
 
 

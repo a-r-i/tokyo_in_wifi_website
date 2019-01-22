@@ -14,7 +14,8 @@ class TestSpotsView(TestCase):
         # 新宿駅の緯度と経度
         self.data = {
             'latitude': 35.6895924,
-            'longitude': 139.7004131
+            'longitude': 139.7004131,
+            'count': 100
         }
 
     def test_get(self):
