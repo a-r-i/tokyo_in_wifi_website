@@ -18,3 +18,25 @@
 
 # Demo
 [http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov](http://d3jo9wp4rp1004.cloudfront.net/technology/tokyo_in_wifi/connect_wifi.mov)
+
+# Usage
+```git clone git@github.com:a-r-i/tokyo_in_wifi_website.git```
+
+```cd tokyo_in_wifi_website```
+
+```pip install -r requirements.txt```
+
+make settings_local.py
+
+uncomment settings_local, commentout settings_production
+
+```
+from settings_local import SECRET_KEY, DEBUG, ALLOWED_HOSTS, SECURE_SSL_REDIRECT
+# from settings_production import SECRET_KEY, DEBUG, ALLOWED_HOSTS, SECURE_SSL_REDIRECT
+```
+
+```python manage.py migrate```
+
+```python manage.py runsslserver```
+
+access to https://127.0.0.1:8000
