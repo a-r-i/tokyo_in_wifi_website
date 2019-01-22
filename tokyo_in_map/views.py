@@ -18,8 +18,6 @@ class SpotsView(View):
         return render(request, 'tokyo_in_map/spots.html')
 
     def post(self, request):
-        print(request.POST)
-
         request_latitude = request.POST['latitude']
         request_longitude = request.POST['longitude']
         try:
