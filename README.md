@@ -2,7 +2,7 @@
 アイドルグループ・・・・・・・・・第15回定期公演「Tokyo in WiFi」特設Webサイト(Single Page Application)    
 [https://wifi.dots.tokyo](https://wifi.dots.tokyo)
 
-本サイトをスマホで開きながら世界各地に設置されたスポットに行くと、アイドルの音声や動画を閲覧することができます。  
+本サイトをスマホで開きながら世界各地に設置されたスポットを訪れると、アイドルの音声や動画を閲覧することができます。  
 音声や動画のなかには、そのスポットが設置された場所にちなんだ内容のものもあり、あたかもアイドルがそこに棲んでいるような錯覚を生みだします。  
 
 # Requirement
@@ -28,7 +28,19 @@
 
 make settings_local.py
 
-uncomment settings_local, commentout settings_production
+```
+SECRET_KEY = ''
+DEBUG = True
+ALLOWED_HOSTS = [
+                'localhost/',
+                'localhost',
+                '127.0.0.1/',
+                '127.0.0.1',
+                ]
+SECURE_SSL_REDIRECT = False
+```
+
+open settings.py. uncomment settings_local, commentout settings_production
 
 ```
 from settings_local import SECRET_KEY, DEBUG, ALLOWED_HOSTS, SECURE_SSL_REDIRECT
