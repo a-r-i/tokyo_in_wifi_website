@@ -74,10 +74,12 @@ function addSpot(data) {
 
 function fetchSpot(latitude, longitude) {
     var url = '/spots';
+    var count = 100;
 
     var payload = {
         latitude: latitude,
-        longitude: longitude
+        longitude: longitude,
+        count: count
     };
 
     // Ajax通信を開始
