@@ -1,5 +1,6 @@
 # Tokyo in WiFi
-アイドルグループ・・・・・・・・・第15回定期公演「Tokyo in WiFi」特設Webサイト(Single Page Application)    
+アイドルグループ・・・・・・・・・第15回定期公演「Tokyo in WiFi」特設Webサイト(Single Page Application)
+
 [https://wifi.dots.tokyo](https://wifi.dots.tokyo)
 
 ## Description
@@ -23,7 +24,7 @@
 ## Usage
 ```
 $ git clone git@github.com:a-r-i/tokyo_in_wifi_website.git
-$ cd tokyo_in_wifi_website```
+$ cd tokyo_in_wifi_website
 $ pip install -r requirements.txt
 ```
 
