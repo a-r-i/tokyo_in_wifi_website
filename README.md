@@ -54,4 +54,4 @@ $ python manage.py migrate
 $ python manage.py runsslserver
 ```
 
-access to https://127.0.0.1:8000.
+access to https://127.0.0.1:8000/spots.
