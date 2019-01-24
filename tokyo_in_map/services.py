@@ -2,7 +2,7 @@ from .models import Spot, Content
 
 import pyproj
 
-def search_spots(request_latitude, request_longitude, count):
+def search_spots(request_latitude, request_longitude, request_count):
     spots = []
 
     spot_obj_list = Spot.objects.all()
@@ -28,9 +28,9 @@ def search_spots(request_latitude, request_longitude, count):
         spots.append(spot)
 
     spots.sort(key=lambda x: x['distance_meter'])
-    sliced_distance_meter_sorted_spots = spots[0:count]
+    sliced_spots = spots[0:request_count]
 
-    return sliced_distance_meter_sorted_spots
+    return sliced_spots
 
 
 def culc_distance(lat1, lng1, lat2, lng2):
