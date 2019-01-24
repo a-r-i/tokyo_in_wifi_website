@@ -14,6 +14,7 @@ class IndexView(TemplateView):
 
 class SpotsView(View):
     method_decorator(ensure_csrf_cookie)
+
     def get(self, request):
         return render(request, 'tokyo_in_map/spots.html')
 

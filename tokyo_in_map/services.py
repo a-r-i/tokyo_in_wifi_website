@@ -1,6 +1,11 @@
-from .models import Spot, Content
+import logging
 
 import pyproj
+
+from .models import Spot, Content
+
+logging.getLogger(__name__)
+
 
 def search_spots(request_latitude, request_longitude, request_count):
     spots = []
@@ -21,7 +26,7 @@ def search_spots(request_latitude, request_longitude, request_count):
             try:
                 content_obj = Content.objects.get(spot=spot_obj.id)
             except Content.DoesNotExist:
-                print('Content.DoesNotExist')
+                logging.error('Content.DoesNotExist')
             else:
                 spot['content_url'] = content_obj.content_url
 
