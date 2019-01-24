@@ -31,6 +31,10 @@ $ pip install -r requirements.txt
 make settings_local.py.
 
 ```
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+
 SECRET_KEY = ''
 DEBUG = True
 ALLOWED_HOSTS = [
